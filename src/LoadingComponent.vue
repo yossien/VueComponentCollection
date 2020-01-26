@@ -12,7 +12,7 @@
 
 <script>
     export default {
-        name: "Loading.vue"
+        name: "LoadingComponent.vue"
     }
 </script>
 
