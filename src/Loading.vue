@@ -16,7 +16,21 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  $mask-background-color : rgba(255, 255, 255, .7);
+
+  $loading-message-font-size : 32px;
+  $loading-message-font-weight : lighter;
+  $loading-message-color: #aaa;
+  $loading-message-font-family: "ヒラギノ角ゴ ProN W3","Courier","Arial Narrow";
+  $loading-letter-spacing: 1.2em;
+
+  $loading-color : #888;
+  $loading-color-1 : rgba(128, 128, 128, 0.2);
+  $loading-color-2 : rgba(128, 128, 128, 0.5);
+  $loading-color-3 : rgba(128, 128, 128, 0.7);
+  $loader-animation-speed : 1.3s;
+
   .loader {
     margin: 100px auto;
     font-size: 25px;
@@ -25,8 +39,8 @@
     border-radius: 50%;
     position: relative;
     text-indent: -9999em;
-    -webkit-animation: load5 1.1s infinite ease;
-    animation: load5 1.1s infinite ease;
+    -webkit-animation: load5 $loader-animation-speed infinite ease;
+    animation: load5 $loader-animation-speed infinite ease;
     -webkit-transform: translateZ(0);
     -ms-transform: translateZ(0);
     transform: translateZ(0);
@@ -34,63 +48,64 @@
   .loading-message {
     display: block;
     padding-top: 1.2em;
-    font-size: 32px;
-    font-weight: bold;
-    letter-spacing: 1.2em;
-    color: #c8c9cc;
+    font-size: $loading-message-font-size;
+    font-weight: $loading-message-font-weight;
+    font-family: $loading-message-font-family;
+    letter-spacing: $loading-letter-spacing;
+    color: $loading-message-color;
   }
   @-webkit-keyframes load5 {
     0%,
     100% {
-      box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+      box-shadow: 0em -2.6em 0em 0em $loading-color, 1.8em -1.8em 0 0em $loading-color-1, 2.5em 0em 0 0em $loading-color-1, 1.75em 1.75em 0 0em $loading-color-1, 0em 2.5em 0 0em $loading-color-1, -1.8em 1.8em 0 0em $loading-color-1, -2.6em 0em 0 0em $loading-color-2, -1.8em -1.8em 0 0em $loading-color-3;
     }
     12.5% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+      box-shadow: 0em -2.6em 0em 0em $loading-color-3, 1.8em -1.8em 0 0em $loading-color, 2.5em 0em 0 0em $loading-color-1, 1.75em 1.75em 0 0em $loading-color-1, 0em 2.5em 0 0em $loading-color-1, -1.8em 1.8em 0 0em $loading-color-1, -2.6em 0em 0 0em $loading-color-1, -1.8em -1.8em 0 0em $loading-color-2;
     }
     25% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff, 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em $loading-color-2, 1.8em -1.8em 0 0em $loading-color-3, 2.5em 0em 0 0em $loading-color, 1.75em 1.75em 0 0em $loading-color-1, 0em 2.5em 0 0em $loading-color-1, -1.8em 1.8em 0 0em $loading-color-1, -2.6em 0em 0 0em $loading-color-1, -1.8em -1.8em 0 0em $loading-color-1;
     }
     37.5% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5), 2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #ffffff, 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em $loading-color-1, 1.8em -1.8em 0 0em $loading-color-2, 2.5em 0em 0 0em $loading-color-3, 1.75em 1.75em 0 0em $loading-color, 0em 2.5em 0 0em $loading-color-1, -1.8em 1.8em 0 0em $loading-color-1, -2.6em 0em 0 0em $loading-color-1, -1.8em -1.8em 0 0em $loading-color-1;
     }
     50% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.5), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em $loading-color-1, 1.8em -1.8em 0 0em $loading-color-1, 2.5em 0em 0 0em $loading-color-2, 1.75em 1.75em 0 0em $loading-color-3, 0em 2.5em 0 0em $loading-color, -1.8em 1.8em 0 0em $loading-color-1, -2.6em 0em 0 0em $loading-color-1, -1.8em -1.8em 0 0em $loading-color-1;
     }
     62.5% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5), 0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff, -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em $loading-color-1, 1.8em -1.8em 0 0em $loading-color-1, 2.5em 0em 0 0em $loading-color-1, 1.75em 1.75em 0 0em $loading-color-2, 0em 2.5em 0 0em $loading-color-3, -1.8em 1.8em 0 0em $loading-color, -2.6em 0em 0 0em $loading-color-1, -1.8em -1.8em 0 0em $loading-color-1;
     }
     75% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.5), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff, -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em $loading-color-1, 1.8em -1.8em 0 0em $loading-color-1, 2.5em 0em 0 0em $loading-color-1, 1.75em 1.75em 0 0em $loading-color-1, 0em 2.5em 0 0em $loading-color-2, -1.8em 1.8em 0 0em $loading-color-3, -2.6em 0em 0 0em $loading-color, -1.8em -1.8em 0 0em $loading-color-1;
     }
     87.5% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5), -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+      box-shadow: 0em -2.6em 0em 0em $loading-color-1, 1.8em -1.8em 0 0em $loading-color-1, 2.5em 0em 0 0em $loading-color-1, 1.75em 1.75em 0 0em $loading-color-1, 0em 2.5em 0 0em $loading-color-1, -1.8em 1.8em 0 0em $loading-color-2, -2.6em 0em 0 0em $loading-color-3, -1.8em -1.8em 0 0em $loading-color;
     }
   }
   @keyframes load5 {
     0%,
     100% {
-      box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+      box-shadow: 0em -2.6em 0em 0em $loading-color, 1.8em -1.8em 0 0em $loading-color-1, 2.5em 0em 0 0em $loading-color-1, 1.75em 1.75em 0 0em $loading-color-1, 0em 2.5em 0 0em $loading-color-1, -1.8em 1.8em 0 0em $loading-color-1, -2.6em 0em 0 0em $loading-color-2, -1.8em -1.8em 0 0em $loading-color-3;
     }
     12.5% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+      box-shadow: 0em -2.6em 0em 0em $loading-color-3, 1.8em -1.8em 0 0em $loading-color, 2.5em 0em 0 0em $loading-color-1, 1.75em 1.75em 0 0em $loading-color-1, 0em 2.5em 0 0em $loading-color-1, -1.8em 1.8em 0 0em $loading-color-1, -2.6em 0em 0 0em $loading-color-1, -1.8em -1.8em 0 0em $loading-color-2;
     }
     25% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff, 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em $loading-color-2, 1.8em -1.8em 0 0em $loading-color-3, 2.5em 0em 0 0em $loading-color, 1.75em 1.75em 0 0em $loading-color-1, 0em 2.5em 0 0em $loading-color-1, -1.8em 1.8em 0 0em $loading-color-1, -2.6em 0em 0 0em $loading-color-1, -1.8em -1.8em 0 0em $loading-color-1;
     }
     37.5% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5), 2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #ffffff, 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em $loading-color-1, 1.8em -1.8em 0 0em $loading-color-2, 2.5em 0em 0 0em $loading-color-3, 1.75em 1.75em 0 0em $loading-color, 0em 2.5em 0 0em $loading-color-1, -1.8em 1.8em 0 0em $loading-color-1, -2.6em 0em 0 0em $loading-color-1, -1.8em -1.8em 0 0em $loading-color-1;
     }
     50% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.5), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em $loading-color-1, 1.8em -1.8em 0 0em $loading-color-1, 2.5em 0em 0 0em $loading-color-2, 1.75em 1.75em 0 0em $loading-color-3, 0em 2.5em 0 0em $loading-color, -1.8em 1.8em 0 0em $loading-color-1, -2.6em 0em 0 0em $loading-color-1, -1.8em -1.8em 0 0em $loading-color-1;
     }
     62.5% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5), 0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff, -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em $loading-color-1, 1.8em -1.8em 0 0em $loading-color-1, 2.5em 0em 0 0em $loading-color-1, 1.75em 1.75em 0 0em $loading-color-2, 0em 2.5em 0 0em $loading-color-3, -1.8em 1.8em 0 0em $loading-color, -2.6em 0em 0 0em $loading-color-1, -1.8em -1.8em 0 0em $loading-color-1;
     }
     75% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.5), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff, -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+      box-shadow: 0em -2.6em 0em 0em $loading-color-1, 1.8em -1.8em 0 0em $loading-color-1, 2.5em 0em 0 0em $loading-color-1, 1.75em 1.75em 0 0em $loading-color-1, 0em 2.5em 0 0em $loading-color-2, -1.8em 1.8em 0 0em $loading-color-3, -2.6em 0em 0 0em $loading-color, -1.8em -1.8em 0 0em $loading-color-1;
     }
     87.5% {
-      box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5), -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+      box-shadow: 0em -2.6em 0em 0em $loading-color-1, 1.8em -1.8em 0 0em $loading-color-1, 2.5em 0em 0 0em $loading-color-1, 1.75em 1.75em 0 0em $loading-color-1, 0em 2.5em 0 0em $loading-color-1, -1.8em 1.8em 0 0em $loading-color-2, -2.6em 0em 0 0em $loading-color-3, -1.8em -1.8em 0 0em $loading-color;
     }
   }
 
@@ -101,7 +116,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .5);
+    background-color: $mask-background-color;
     display: table;
     transition: opacity .3s ease;
   }
